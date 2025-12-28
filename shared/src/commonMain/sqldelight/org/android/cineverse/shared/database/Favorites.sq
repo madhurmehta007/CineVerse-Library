@@ -1,0 +1,20 @@
+-- Favorites table for storing favorite movie IDs
+CREATE TABLE Favorite (
+    movieId TEXT PRIMARY KEY NOT NULL
+);
+
+-- Get all favorite movie IDs
+selectAll:
+SELECT movieId FROM Favorite;
+
+-- Insert a movie as favorite
+insert:
+INSERT OR REPLACE INTO Favorite(movieId) VALUES (?);
+
+-- Remove a movie from favorites
+delete:
+DELETE FROM Favorite WHERE movieId = ?;
+
+-- Check if a movie is favorite
+exists:
+SELECT COUNT(*) FROM Favorite WHERE movieId = ?;
