@@ -10,7 +10,6 @@ plugins {
 
 kotlin {
     androidTarget {
-        publishLibraryVariants("release")
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -85,10 +84,11 @@ android {
     }
 }
 
+// Configure publishing coordinates for KMP-generated publications
 afterEvaluate {
     publishing {
         publications.withType<MavenPublication> {
-            groupId = "org.android.cineverse"
+            groupId = "org.android.cineverse.shared"
             version = "1.0.0"
         }
         
