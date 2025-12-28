@@ -16,6 +16,29 @@ This is a Kotlin Multiplatform project targeting Android, iOS.
   The most important subfolder is [commonMain](./shared/src/commonMain/kotlin). If preferred, you
   can add code to the platform-specific folders here too.
 
+### Publishing to Maven Local
+
+To publish the shared library to your local Maven repository, run:
+
+**macOS/Linux:**
+```shell
+export JAVA_HOME="/Users/user/Library/Java/JavaVirtualMachines/corretto-17.0.16/Contents/Home"
+./gradlew publishToMavenLocal
+```
+
+**Windows:**
+```shell
+set JAVA_HOME=C:\path\to\your\java\17\home
+.\gradlew.bat publishToMavenLocal
+```
+
+This will publish the library to `~/.m2/repository/org/android/cineverse/` with:
+- **Group ID**: `org.android.cineverse`
+- **Artifact ID**: `shared` (with platform variants: `shared-android`, `shared-iosarm64`, `shared-iossimulatorarm64`)
+- **Version**: `1.0.0`
+
+You can then use this library in other projects by adding it as a dependency.
+
 ### Build and Run Android Application
 
 To build and run the development version of the Android app, use the run configuration from the run widget
